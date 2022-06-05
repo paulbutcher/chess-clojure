@@ -1,6 +1,5 @@
 (ns chess-clojure.core
-  (:require [clojure.math.numeric-tower :refer [abs]]
-            [clojure.string :refer [join]]))
+  (:require [clojure.pprint :refer [pprint]]))
 
 (defn takes? [piece [dx dy]]
   (case piece
@@ -31,9 +30,9 @@
               :when (allowed? candidate [x y] solution)]
           (conj solution [candidate [x y]]))))))
 
-(defn -main [& args]
-  ; (let [solution (solve 3 3 [:K :K :R])]
-  ; (let [solution (solve 4 4 [:R :R :N :N :N :N])]
+(defn -main []
+  ;; (let [solution (solve 3 3 [:K :K :R])]
+  ;; (let [solution (solve 4 4 [:R :R :N :N :N :N])]
   (let [solution (solve 6 9 [:K :K :N :R :B :Q])]
-    ; (println (join "\n" solution))
+    ;; (pprint solution)
     (println (count solution))))
